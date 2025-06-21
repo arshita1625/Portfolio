@@ -74,14 +74,14 @@ export default function ExperienceSection() {
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold text-center mb-16"
         >
-          Work <span className="text-purple-400">Experience</span>
+          Work Experience &<span className="text-purple-400"> Education</span>
         </motion.h2>
-        
+
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline Line */}
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-400 to-green-400"></div>
-            
+
             {experiences.map((experience, index) => (
               <motion.div
                 key={experience.id}
@@ -96,7 +96,7 @@ export default function ExperienceSection() {
                     {experience.icon}
                   </div>
                 </div>
-                
+
                 <Card className="glass-effect border-white/10">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -115,11 +115,11 @@ export default function ExperienceSection() {
                         {experience.period}
                       </span>
                     </div>
-                    
+
                     <p className="text-gray-300 mb-4">
                       {experience.description}
                     </p>
-                    
+
                     {experience.achievements && (
                       <ul className="space-y-2">
                         {experience.achievements.map((achievement, i) => (
