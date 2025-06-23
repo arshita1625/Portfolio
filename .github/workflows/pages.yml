@@ -5,25 +5,15 @@ on:
     branches:
       - main
 
-permissions:
-  pages: write
-  id-token: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5    # <<–– upgrade this
-
-      - name: Upload client/ folder as Pages artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy client/ to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: client/                    # <<–– make sure this matches your folder name exactly
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./client     # ← point here at your “client” folder
