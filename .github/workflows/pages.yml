@@ -5,15 +5,23 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write   # allow checkout + push
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out code
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true   # ensure the GITHUB_TOKEN is available to subsequent steps
 
       - name: Deploy client/ to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./client     # ← point here at your “client” folder
+          publish_dir: ./client
