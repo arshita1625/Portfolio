@@ -20,10 +20,10 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload clients/ folder as Pages artifact
+      - name: Upload client/ folder as Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: clients/
+          path: client/
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
