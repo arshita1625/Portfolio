@@ -20,7 +20,7 @@ export default function AboutSection() {
         >
           About <span className="text-purple-400">Me</span>
         </motion.h2>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -33,26 +33,26 @@ export default function AboutSection() {
               className="rounded-2xl shadow-2xl w-full"
             />
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-2xl font-semibold mb-6 text-cyan-400">
-              Building the Future with Code
+
+              Brains, Brackets, and Bold Builds
             </h3>
             <p className="text-gray-300 text-lg mb-6">
-              Currently pursuing my Masters of Engineering in Electrical and Computer Engineering at the 
-              University of Waterloo. With 1.5 years of professional experience at BNG Advanced Mobile Solutions, 
+              Currently pursuing my Masters of Engineering in Electrical and Computer Engineering at the
+              University of Waterloo. With 1.5 years of professional experience at BNG Advanced Mobile Solutions,
               I've contributed to large-scale systems serving telecom clients.
             </p>
             <p className="text-gray-300 text-lg mb-8">
-              My passion lies in creating efficient, scalable solutions and exploring the intersection of 
-              software engineering and artificial intelligence. I've published research in machine learning 
-              and led initiatives to empower women in STEM.
+              I live at the crossroads of software engineering and artificial intelligence, from publishing ML research to building adaptive systems. I also lead initiatives that support women in STEM, working toward a more inclusive tech space.
+              This portfolio is more than a collection of projects—it’s a window into how I think, build, and lead. I don’t just code to solve problems. I code to challenge what’s possible.
             </p>
-            
+
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (

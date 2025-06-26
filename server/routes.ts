@@ -3,9 +3,12 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import path from "path";
 import fs from "fs";
-
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
+
   app.post("/api/contact", async (req, res) => {
     try {
       const { name, email, message } = req.body;
@@ -23,15 +26,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
           error: "Invalid email format"
         });
       }
-
-      // Here you would typically send an email using a service like SendGrid, Nodemailer, etc.
-      // For now, we'll just log the contact information
-      console.log('Contact form submission:', { name, email, message, timestamp: new Date().toISOString() });
-
-      res.json({
-        success: true,
-        message: "Thank you for your message! I'll get back to you soon."
+      console.log("Contact form submission:", {
+        name,
+        email,
+        message,
+        timestamp: new Date().toISOString(),
       });
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER, // your Gmail address
+          pass: process.env.EMAIL_PASS, // your Gmail App Password
+        },
+      });
+
+      const mailOptions = {
+        from: `"Portfolio Contact Form" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER,
+        subject: `Message from ${name}`,
+        text: `You received a new message:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      };
+      const info = await transporter.sendMail(mailOptions);
+      console.log("Res:", info.response);
+      if (info.accepted && info.accepted.length > 0) {
+        console.log("Email sent:", info.response);
+        return res.json({
+          success: true,
+          message: "Thank you for your message! I'll get back to you soon.",
+        });
+      } else {
+        console.error(" Email not accepted by SMTP server:", info);
+        return res.status(500).json({
+          error: "Message could not be sent. Please try again later.",
+        });
+      }
     } catch (error) {
       console.error('Contact form error:', error);
       res.status(500).json({
@@ -43,28 +72,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Resume download endpoint
   app.get("/api/resume/download", async (req, res) => {
     try {
-      const resumePath = path.join(process.cwd(), 'client/public/Arshita_Resume.pdf');
+      // 🔐 Updated path: resume now lives in client/attached_assets/
+      const resumePath = path.resolve("attached_assets", "Arshita_Software_Developer.pdf");
 
-      // Check if file exists
       if (!fs.existsSync(resumePath)) {
-        return res.status(404).json({
-          error: "Resume file not found"
-        });
+        console.error(" Resume not found at:", resumePath);
+        return res.status(404).json({ error: "Resume file not found" });
       }
 
-      // Set proper headers for PDF download
-      res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', 'attachment; filename="Arshita_Resume.pdf"');
+      // ✅ Set headers for browser view
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", 'attachment; filename="Arshita_Software_Developer.pdf"');
 
-      // Send the PDF file
-      res.sendFile(resumePath);
-    } catch (error) {
-      console.error('Resume download error:', error);
-      res.status(500).json({
-        error: "Failed to download resume. Please try again later."
+      // ✅ Send file
+      return res.sendFile(resumePath, (err) => {
+        if (err) {
+          console.error(" Error sending file:", err);
+          res.status(500).json({ error: "Failed to send resume." });
+        }
       });
+    } catch (error) {
+      console.error(" Resume download error:", error);
+      res.status(500).json({ error: "Unexpected server error." });
     }
   });
+
 
   // Get portfolio stats/data
   app.get("/api/portfolio/stats", async (req, res) => {

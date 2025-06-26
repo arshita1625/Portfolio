@@ -14,13 +14,14 @@ export default function HeroSection() {
   }, []);
 
   const downloadResume = () => {
-    // Create a link to download the resume
-    const link = document.createElement('a');
-    link.href = '/attached_assets/';
-    link.download = 'Arshita_Software_Developer.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+
+    // const link = document.createElement('a');
+    // link.href = '/attached_assets/Arshita_Software_Developer.pdf';
+    // link.download = 'Arshita_Software_Developer.pdf';
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
+    window.open('/attached_assets/Arshita_Software_Developer.pdf', '_blank');
   };
 
   return (
@@ -38,12 +39,11 @@ export default function HeroSection() {
           </h1>
 
           <div className="text-xl md:text-2xl text-gray-300 mb-8 font-mono h-8">
-            <TypingAnimation text="Software Developer & MEng Student" />
+            <TypingAnimation text="Software Developer & Masters Student" />
           </div>
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
-            Masters student at University of Waterloo passionate about building scalable web applications,
-            machine learning solutions, and innovative software products.
+            A Waterloo Student engineering pixels and logic—where thoughtful code meets delightful design.
           </p>
 
           {/* Animated Code Block */}
@@ -100,7 +100,7 @@ export default function HeroSection() {
               className="glass-effect px-8 py-3 rounded-lg font-semibold hover:bg-white/10"
             >
               <Download className="mr-2 h-4 w-4" />
-              Download Resume
+              View Resume
             </Button>
           </motion.div>
         </motion.div>

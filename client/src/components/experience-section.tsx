@@ -12,6 +12,12 @@ export default function ExperienceSection() {
       period: "Sept 2024 - Present",
       type: "education",
       description: "Electrical and Computer Engineering focusing on advanced software systems, machine learning, and distributed computing technologies.",
+      achievements: [
+        "Elected Board Director at Graduate Student Association (GSA), representing engineering graduate students",
+        "Developed an Intrusion Detection System using autoencoders and semi-supervised learning for malicious attacks",
+        "Organized professional development events as WiE Director, empowering Women in STEM"
+
+      ],
       icon: <GraduationCap className="w-6 h-6" />,
       color: "text-cyan-400",
     },
@@ -24,9 +30,10 @@ export default function ExperienceSection() {
       type: "work",
       description: "Built centralized CMS reducing manual content handling time by 80% across 5+ applications. Contributed to Customer Value Management (CVM) system for telecom client retention and managed personalized offer campaigns.",
       achievements: [
-        "Built centralized CMS reducing manual content handling time by 80%",
+        "Built a centralized CMS that reduced manual content handling time by 80 % across multiple applications",
         "Contributed to CVM system for telecom client retention",
-        "Managed personalized offer campaigns and targeted marketing strategies",
+        "Contributed to the development of an AI agent at the company using Meta’s LLaMA model, enabling intelligent conversational capabilities for product queries, recommendations, and customer support.",
+        "Built dynamic UI rendered from backend JSON, enabling rapid updates and scalable component reuse."
       ],
       icon: <Briefcase className="w-6 h-6" />,
       color: "text-purple-400",
@@ -40,9 +47,9 @@ export default function ExperienceSection() {
       type: "work",
       description: "Developed Customer Care Interface (CCI) in React for telecom operators. Reduced customer support handling time by 35% and increased unit test coverage from 65% to 75%.",
       achievements: [
-        "Developed Customer Care Interface (CCI) in React for telecom operators",
-        "Reduced customer support handling time by 35%",
+        "Designed a React-based Customer Care Interface to manage user subscriptions and billing, cutting support time by 35%.",
         "Increased unit test coverage from 65% to 75%, reducing post-release bugs by 20%",
+        "Participated in debugging, feature enhancement, and code reviews to meet product quality standards."
       ],
       icon: <Briefcase className="w-6 h-6" />,
       color: "text-green-400",
@@ -57,8 +64,8 @@ export default function ExperienceSection() {
       description: "Computer Engineering with 88.9% percentage. Published research in machine learning and led Women In Engineering initiatives.",
       achievements: [
         "Graduated with 88.9% in Computer Engineering",
-        "Published research in machine learning for breast cancer detection",
-        "Led Women In Engineering initiatives, increasing participation by 30%",
+        "Published research in machine learning for breast cancer detection using artificial neural networks",
+        "Conducted hands-on experiments in computer vision, embedded systems, and database management systems"
       ],
       icon: <GraduationCap className="w-6 h-6" />,
       color: "text-orange-400",

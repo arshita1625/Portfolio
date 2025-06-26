@@ -10,7 +10,7 @@ export default function Footer() {
       color: "bg-blue-600 hover:bg-blue-700",
     },
     {
-      name: "GitHub", 
+      name: "GitHub",
       href: "https://github.com/arshita1625",
       icon: <Github className="w-5 h-5" />,
       color: "bg-gray-700 hover:bg-gray-800",
@@ -41,14 +41,14 @@ export default function Footer() {
               onClick={scrollToTop}
               className="text-2xl font-bold text-cyan-400 mb-2 hover:text-cyan-300 transition-colors cursor-pointer"
             >
-              Arshita<span className="text-purple-400">.</span>
+              Arshita
             </button>
             <p className="text-gray-400 flex items-center justify-center md:justify-start">
-              Building the future, one line of code at a time{" "}
+              From concept to code — crafting clean, impactful software.
               <Heart className="w-4 h-4 ml-2 text-red-400" />
             </p>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function Footer() {
             ))}
           </motion.div>
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -81,7 +81,7 @@ export default function Footer() {
           className="border-t border-slate-800 mt-8 pt-8 text-center"
         >
           <p className="text-gray-400 flex items-center justify-center">
-            &copy; 2024 Arshita All rights reserved. Built with passion and lots of{" "}
+            &copy; 2025 Arshita All rights reserved. Built with passion and lots of{" "}
             <Coffee className="w-4 h-4 mx-1 text-amber-600" />
           </p>
         </motion.div>
