@@ -27,7 +27,7 @@ export default function SkillsSection() {
       color: "text-cyan-400",
     },
     {
-      title: "Backend Development", 
+      title: "Backend Development",
       icon: <Bolt className="w-6 h-6" />,
       skills: ["Node.js", "Express.js", "Python", "REST APIs", "JWT"],
       color: "text-green-400",
@@ -39,9 +39,9 @@ export default function SkillsSection() {
       color: "text-purple-400",
     },
     {
-      title: "DevOps & Bolt",
+      title: "DevOps",
       icon: <GitBranch className="w-6 h-6" />,
-      skills: ["GitHub Actions", "CI/CD", "Jenkins", "Git", "JIRA"],
+      skills: ["GitHub Actions", "CI/CD", "Jenkins"],
       color: "text-orange-400",
     },
   ];
@@ -57,7 +57,7 @@ export default function SkillsSection() {
         >
           Technical <span className="text-purple-400">Skills</span>
         </motion.h2>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Programming Languages */}
           <motion.div
@@ -108,7 +108,7 @@ export default function SkillsSection() {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold mb-8 text-cyan-400 flex items-center">
                   <Bolt className="mr-3" />
-                  Frameworks & Bolt
+                  Tools & Frameworks
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {techStack.map((tech, index) => (
