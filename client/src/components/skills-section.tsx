@@ -4,8 +4,8 @@ import { Code, Bolt, Database, Cloud, GitBranch, Cpu } from "lucide-react";
 
 export default function SkillsSection() {
   const programmingSkills = [
-    { name: "Python", percentage: 90, color: "from-purple-500 to-purple-600" },
-    { name: "JavaScript/TypeScript", percentage: 85, color: "from-cyan-400 to-blue-500" },
+    { name: "JavaScript/TypeScript", percentage: 90, color: "from-cyan-400 to-blue-500" },
+    { name: "Python", percentage: 85, color: "from-purple-500 to-purple-600" },
     { name: "Java", percentage: 80, color: "from-green-400 to-emerald-600" },
     { name: "C++", percentage: 75, color: "from-orange-500 to-red-500" },
   ];

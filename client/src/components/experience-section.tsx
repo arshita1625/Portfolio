@@ -61,7 +61,7 @@ export default function ExperienceSection() {
       location: "Amritsar, India",
       period: "July 2019 - May 2023",
       type: "education",
-      description: "Computer Engineering with 88.9% percentage. Published research in machine learning and led Women In Engineering initiatives.",
+      description: "Computer Engineering with 88.9% percentage. Published research in machine learning.",
       achievements: [
         "Graduated with 88.9% in Computer Engineering",
         "Published research in machine learning for breast cancer detection using artificial neural networks",
